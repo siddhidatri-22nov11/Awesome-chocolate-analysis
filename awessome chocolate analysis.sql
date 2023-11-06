@@ -72,4 +72,9 @@ INTO customerBarbara
 FROM customer
 WHERE first_name = 'Barbara';
 
- 
+ -- top 10 product:
+ select pr.Product, sum(s.amount) as 'Total Amount'
+ from sales s 
+ join products pr on pr.pid = s.pid
+ group by pr.Product
+ order by 'Total Amount' desc; 
